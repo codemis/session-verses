@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+# original source list; the mod keeps its own copy in session-verses/data/
+/top-bible-verses.json
+# engine-generated editor types
+session-verses/tsconfig.json
+session-verses/.claude-plugin/types/

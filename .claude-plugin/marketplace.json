@@ -1,0 +1,11 @@
+{
+  "name": "session-verses-mods",
+  "owner": { "name": "Missional Digerati", "email": "johnathan@missionaldigerati.org" },
+  "plugins": [
+    {
+      "name": "session-verses",
+      "source": "./session-verses",
+      "description": "Claude Session Verses: one random Bible verse (BSB) above the prompt each session."
+    }
+  ]
+}

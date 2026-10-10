@@ -1,0 +1,8 @@
+{
+  "name": "session-verses",
+  "version": "0.1.0",
+  "description": "Claude Session Verses: shows one randomly picked Bible verse (BSB) with its reference above the prompt for the session, beneath token-weather.",
+  "author": { "name": "Missional Digerati", "email": "johnathan@missionaldigerati.org" },
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}
