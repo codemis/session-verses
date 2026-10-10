@@ -33,12 +33,28 @@ git clone git@github.com:codemis/session-verses.git
 claude --plugin-dir ./session-verses/session-verses
 ```
 
-### Using it with token-weather
+### Known issue: another mod hides the verse
 
-Both mods draw in the band above the prompt. Claude Session Verses shows its
-verse beneath whatever the hooks below it draw, so it stacks under
-token-weather only when it loads first. If only one of the two appears, that is
-load order, not a bug.
+Claude Session Verses draws in the band directly above the prompt. That band
+has room for one drawing: when a mod there draws its own band and does not
+hand the render down (token-weather does this), anything loaded after it is
+never drawn. If you install both and see only the other mod's band, this is
+why. Nothing is broken.
+
+Mods in the same tier run in the order they are listed in `enabledPlugins` in
+`~/.claude/settings.json`, the first one outermost. To show the verse beneath
+the other band, list `session-verses` above it:
+
+```json
+"enabledPlugins": {
+  "session-verses@session-verses-mods": true,
+  "token-weather@claude-code-playground-mods": true
+}
+```
+
+Start a new session after changing it. Installing or reinstalling plugins can
+rewrite that list, so if the verse disappears later, check the order again.
+Other mods that draw in the same band may need the same treatment.
 
 ## License
 
