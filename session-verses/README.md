@@ -3,6 +3,8 @@
 **Claude Session Verses** is a Claude Code mod that picks one random Bible verse when a session starts and
 shows it, with its reference, in the band above the prompt.
 
+![Claude Session Verses showing a verse above the prompt, beneath token-weather](screenshots/session-verses.png)
+
 - Verses: `data/top-bible-verses.json` (186 commonly cited verses, Berean Standard Bible).
 - The list is embedded in `hooks/register.tsx` because a hooks module cannot read
   files. After editing the JSON, run `node scripts/build.mjs`.
