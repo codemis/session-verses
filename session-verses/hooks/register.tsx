@@ -753,6 +753,23 @@ const VERSES: [string, string][] = [
 ]
 // </verses>
 
+// The source excerpts keep a stray closing or opening quote where a verse is
+// cut out of speech; the band adds its own quotes, so drop the unmatched one.
+const clean = (text: string): string => {
+  const open = text.split('“').length - 1
+  const close = text.split('”').length - 1
+
+  if (close > open && text.endsWith('”')) {
+    return text.slice(0, -1).trimEnd()
+  }
+
+  if (open > close && text.startsWith('“')) {
+    return text.slice(1).trimStart()
+  }
+
+  return text
+}
+
 const current = atom({ plugin: 'session-verses', key: 'verse' } as const, null)
 
 export const register: Register = on => {
@@ -785,7 +802,7 @@ export const register: Register = on => {
       <Box flexDirection="column">
         {isTree ? below : null}
         <Text dimColor italic>
-          “{verse.text}” <Text bold>— {verse.reference}</Text>
+          “{clean(verse.text)}” <Text bold>— {verse.reference}</Text>
         </Text>
       </Box>
     )
