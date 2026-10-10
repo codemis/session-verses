@@ -10,9 +10,35 @@ shows it, with its reference, in the band above the prompt.
 
 ## Install
 
+Requires Claude Code 2.1.275 or later. From any Claude Code session:
+
 ```
-/plugin install session-verses --marketplace <owner>/<repo>
+/plugin marketplace add codemis/session-verses
+/plugin install session-verses@session-verses-mods
 ```
+
+Choose the **user** scope when asked and the mod loads in every new session.
+Start a new session (or run `/reload-plugins`) to see the verse above the prompt.
+
+To update later:
+
+```
+/plugin marketplace update session-verses-mods
+```
+
+### Try it without installing
+
+```
+git clone git@github.com:codemis/session-verses.git
+claude --plugin-dir ./session-verses/session-verses
+```
+
+### Using it with token-weather
+
+Both mods draw in the band above the prompt. Claude Session Verses shows its
+verse beneath whatever the hooks below it draw, so it stacks under
+token-weather only when it loads first. If only one of the two appears, that is
+load order, not a bug.
 
 ## License
 
